@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Coalition Technologies Test</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet"> -->
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> -->
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-container">
+                <img src="./img/testlogo.svg">
+                <ul class="menu float-right">
+                    <li><a href="#">
+                        <img src="./img/icons/home.svg" />
+                        <span>Overview</span>
+                    </a></li>
+                    <li><a class="active" href="#">
+                        <img src="./img/icons/group.svg" />
+                        <span>Patient</span>
+                    </a></li>
+                    <li><a href="#">
+                        <img src="./img/icons/calendar.svg" />
+                        <span>Schedule</span>
+                    </a></li>
+                    <li><a href="#">
+                        <img src="./img/icons/calendar.svg" />
+                        <span>Message</span>
+                    </a></li>
+                    <li><a href="#">
+                        <img src="./img/icons/credit.svg" />
+                        <span>Transactions</span>
+                    </a></li>
+                </ul>
+                <div class="profile">
+                    <div class="account">
+                        <img class="avatar" src="./img/testavatar.png" />
+                        <div class="content-wrapper">
+                            <div class="name">Dr. Jose Simmons</div>
+                            <div class="detail">General Practitioner</div>
+                        </div>
+                    </div>
+                    <div class="setting">
+                        <img class="icon" src="./img/icons/setting.svg" />
+                        <img class="icon" src="./img/icons/more_vert.svg" />
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="card patient-list">
+                <div class="card-header">
+                    <div class="title">Patients</div>
+                    <img class="icon" src="./img/icons/search.svg" />
+                </div>
+                <div class="list-content" id="patient-list">
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="d-flex flex-col grow-1 gap-2">
+                    <div class="card chart-block">
+                        <div class="card-header">
+                            <span class="title">Diagnosis History</span>
+                        </div>
+                        <div class="chart">
+                            <div class="chart-content" id="chart-content">
+                                <canvas id="bloodPressureChart"></canvas>
+                            </div>
+                            <div class="legend" id="legend"></div>
+                        </div>
+                        <div class="utils-block">
+                            <div class="block cyan-block">
+                                <img src="./img/icons/respiratory-rate.svg" />
+                                <div class="d-flex flex-col">
+                                    <span class="block-title">Respiratory Rate</span>
+                                    <span class="value">20 bpm</span>
+                                </div>
+                                <span class="status">Normal</span>
+                            </div>
+                            <div class="block orange-block">
+                                <img src="./img/icons/temperature.svg" />
+                                <div class="d-flex flex-col">
+                                    <span class="block-title">Temperature</span>
+                                    <span class="value">98.6°F</span>
+                                </div>
+                                <span class="status">Normal</span>
+                            </div>
+                            <div class="block pink-block">
+                                <img src="./img/icons/heartbpm.svg" />
+                                <div class="d-flex flex-col">
+                                    <span class="block-title">Heart Rate</span>
+                                    <span class="value">78 bpm</span>
+                                </div>
+                                <span class="status">Normal</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card diagnostic-list">
+                        <div class="card-header">
+                            <span class="title">Diagnostic List</span>
+                        </div>
+                        <div class="diagnostic-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Problem/Diagnosis</th>
+                                        <th>Description</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="diagnostic-table"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-col gap-2">
+                    <div class="card patient-info">
+                        <img id="user-avatar" src="./img/testavatar.png" />
+                        <div class="title" id="name">Jessica Taylor</div>
+                        <div class="patient-info-content">
+                            <div class="account">
+                                <img class="avtar" src="./img/icons/birthicon.png"/>
+                                <div class="content-wrapper">
+                                    <div class="name-v2">Date Of Birth</div>
+                                    <div class="name" id="birthday">xxxx-xx-xx</div>
+                                </div>
+                            </div>
+                            <div class="account">
+                                <img class="avtar" src="./img/icons/femaleicon.png"/>
+                                <div class="content-wrapper">
+                                    <div class="name-v2">Gender</div>
+                                    <div class="name" id="gender">xx</div>
+                                </div>
+                            </div>
+                            <div class="account">
+                                <img class="avtar" src="./img/icons/phoneicon.png"/>
+                                <div class="content-wrapper">
+                                    <div class="name-v2">Contact Info.</div>
+                                    <div class="name" id="phone">(xxx) xxx-xxxx</div>
+                                </div>
+                            </div>
+                            <div class="account">
+                                <img class="avtar" src="./img/icons/phoneicon.png"/>
+                                <div class="content-wrapper">
+                                    <div class="name-v2">Emergency Contacts</div>
+                                    <div class="name" id="contact">(xxx) xxx-xxxx</div>
+                                </div>
+                            </div>
+                            <div class="account">
+                                <img class="avtar" src="./img/icons/insuranceicon.png"/>
+                                <div class="content-wrapper">
+                                    <div class="name-v2">Insurance Provider</div>
+                                    <div class="name" id="insurance_type">xxx xxx xxx</div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="submit" type="button">Show All Information</button>
+                    </div>
+                    <div class="card lab-results">
+                        <div class="card-header">
+                            <span class="title">Lab Results</span>
+                        </div>
+                        <div class="list-content" id="lab-results"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="./js/jquery-3.7.1.min.js"></script>
+
+
+<script>
+    let username = 'coalition';
+    let password = 'skills-test';
+    let auth = btoa(`${username}:${password}`);
+    var dummy = [];
+    var selectedPatient;
+
+    $(document).ready(() => {
+        fetch('https://fedskillstest.coalitiontechnologies.workers.dev/', {
+            headers: {
+                'Authorization': `Basic ${auth}`
+            }
+        }).then(function (response) {
+            if (response.ok) {
+                return response.json();
+            }
+            throw response;
+        }).then(function (data) {
+            dummy = data;
+            let patientListHTMl = dummy.map((element, index) => {
+                return (`<div class="list-item ` + (index == 0 ? 'active' : '') + `" data-id="` + index + `">
+                            <div class="account">
+                                <img class="avatar" src="` + element.profile_picture + `" />
+                                <div class="content-wrapper">
+                                    <div class="name">` + element.name + `</div>
+                                    <div class="detail">`+ element.gender +`, `+ element.age +`</div>
+                                </div>
+                            </div>
+                            <div class="action">
+                                <img class="icon-horiz" src="./img/icons/more_horiz.svg" />
+                            </div>
+                        </div>`);
+            });
+            $('#patient-list').html(patientListHTMl);
+            explorePatientInfo(0);
+            $('#patient-list .list-item').click(function() {
+                $('#patient-list .list-item').removeClass('active');
+                $(this).addClass('active');
+                let index = $(this).data('id');
+                selectedPatient = dummy[index];
+                explorePatientInfo(index);
+                console.log(selectedPatient);
+            });
+            console.log(dummy);
+        }).catch(function (error) {
+            console.warn(error);
+        });
+    });    
+
+    const ctx = document.getElementById('bloodPressureChart');
+    var chart;
+
+    const explorePatientInfo = (index) => {
+        let selected = dummy[index];
+        if (!!chart) {
+            chart.destroy();
+        }
+        let data = {
+            labels: selected.diagnosis_history.map(item => 
+                item.month.slice(0,3) + ', ' + item.year
+            ),
+            datasets: [
+                {
+                    label: 'Systolic',
+                    data: selected.diagnosis_history.map(item => item.blood_pressure.systolic.value),
+                    borderColor: '#C26EB4',
+                    cubicInterpolationMode: 'monotone',
+                },
+                {
+                    label: 'Diastolic',
+                    data: selected.diagnosis_history.map(item => item.blood_pressure.diastolic.value),
+                    borderColor: '#7E6CAB',
+                    cubicInterpolationMode: 'monotone',
+                }
+            ]
+        };    
+
+        chart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Blood Pressure',
+                        font: {
+                            size: 18,
+                            weight: 'bold',
+                        },
+                        align: 'start',
+                        padding: {
+                            bottom: 10
+                        },
+                        color: '##072635',
+                    },
+                    legend: {
+                        display: false,
+                    },
+                    interaction: {
+                        intersect: false,
+                    },
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            display: false,
+                        }
+                    },
+                },
+                layout: {
+                    padding: 20
+                }
+            },
+        });
+
+        $('#legend').html(`<div class="legend-title">
+                            <div class="circle-pink"></div>
+                            Systolic
+                        </div>
+                        <div class="legend-value">160</div>
+                        <div class="legend-description upper">Higher than Average</div>
+                        <hr />
+                        <div class="legend-title">
+                            <div class="circle-purple"></div>
+                            Diastolic
+                        </div>
+                        <div class="legend-value">78</div>
+                        <div class="legend-description lower">Lower than Average</div>`);
+        $('#user-avatar').attr('src', selected.profile_picture);
+        $('#name').html(selected.name);
+        $('#birthday').html(selected.date_of_birth);
+        $('#gender').html(selected.gender);
+        $('#phone').html(selected.phone_number);
+        $('#contact').html(selected.emergency_contact);
+        $('#insurance_type').html(selected.insurance_type);
+        
+        $('#lab-results').html(selected.lab_results.map(item => 
+                            ` <div class="list-item">
+                                <div>` + item + `</div>
+                                <img class="icon" src="./img/icons/download.svg" />
+                            </div>`));
+
+        $('#diagnostic-table').html(selected.diagnostic_list.map(item => `
+        <tr><td>` + item.name + `</td><td>` + item.description + `</td><td>` + item.status + `</td></tr>
+        `))
+    }
+</script>
+</html>
